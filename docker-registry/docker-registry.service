@@ -1,0 +1,13 @@
+[Unit]
+Description=Docker image registry
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c "docker compose -f /home/bruno/infrastructure/docker-registry/docker-compose.yml up --detach"
+ExecStop=/bin/bash -c "docker compose -f /home/bruno/infrastructure/docker-registry/docker-compose.yml stop"
+
+[Install]
+WantedBy=multi-user.target
