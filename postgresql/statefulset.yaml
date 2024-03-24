@@ -122,7 +122,7 @@ spec:
         name: data
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: "standard"
+        storageClassName: "fast"
         resources:
           requests:
             storage: 100Mi
