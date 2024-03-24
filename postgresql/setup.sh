@@ -8,8 +8,7 @@ export POSTGRES_DB="postgres"
 export REPLICATION_USER=$SECRET_REPLICATION_USER
 export REPLICATION_PASS=$SECRET_REPLICATION_PASS
 
-kubectl create secret generic postgresql-credentials \
-    --namespace=postgresql \
+kubectl create -n postgresql secret generic postgresql \
     --from-literal=POSTGRES_USER=${POSTGRES_USER} \
     --from-literal=POSTGRES_PASS=${POSTGRES_PASS} \
     --from-literal=POSTGRES_DB=${POSTGRES_DB} \
