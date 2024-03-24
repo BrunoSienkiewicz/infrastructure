@@ -50,28 +50,6 @@ data:
     max_wal_senders = 3
 
 ---
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: postgres-storage
-provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
-
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: postgres-pv
-spec:
-  storageClassName: postgres-storage
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/mnt/data" # Path to the local directory on the node
-
----
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
