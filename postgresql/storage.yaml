@@ -19,16 +19,3 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/data" # Path to the local directory on the node
-
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: postgres-pvc
-spec:
-  storageClassName: postgres-storage
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
