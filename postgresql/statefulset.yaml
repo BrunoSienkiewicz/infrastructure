@@ -94,11 +94,11 @@ spec:
                   name: postgresql
                   key: POSTGRES_USER
                   optional: false
-            - name: POSTGRES_PASS
+            - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: postgresql
-                  key: POSTGRES_PASS
+                  key: POSTGRES_PASSWORD
                   optional: false
             - name: POSTGRES_DB
               valueFrom:
