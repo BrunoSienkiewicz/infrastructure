@@ -1,6 +1,6 @@
 bin/
 externals/
-registry_creds/
+registry-creds/
 _diag/
 .env
 .credentials*
