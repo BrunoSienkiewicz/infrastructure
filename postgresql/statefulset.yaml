@@ -145,7 +145,7 @@ spec:
         name: data
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: "fast"
+        storageClassName: postgres-storage
         resources:
           requests:
             storage: 100Mi
