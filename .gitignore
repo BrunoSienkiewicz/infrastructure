@@ -1,5 +1,6 @@
 bin/
 externals/
+registry_creds/
 _diag/
 .env
 .credentials*
