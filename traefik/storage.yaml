@@ -4,6 +4,7 @@ metadata:
   name: ssl-cert-pv
   labels:
     type: local
+  namespace: traefik
 spec:
   capacity:
     storage: 1Gi
@@ -14,13 +15,21 @@ spec:
   storageClassName: local-path
   local:
     path: /mnt/data/ssl-cert
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - my-node
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ssl-cert-pvc
-  namespace: default
+  namespace: traefik
 spec:
   accessModes:
     - ReadWriteOnce
