@@ -75,7 +75,6 @@ data:
     hot_standby = on
     restore_command = 'cp /data/archive/%f %p'
     archive_cleanup_command = 'pg_archivecleanup /data/archive %r'
-    primary_conninfo = 'host=postgres-0.postgres-headless.default.svc.cluster.local port=5432 user=replicationuser password=replicationpass'
     trigger_file = '/data/pgdata-replica/failover'
     recovery_target_timeline = 'latest'
 
