@@ -72,12 +72,6 @@ persistence:
   path: /ssl-certs
   size: 1Gi
 
-# volumes:
-#   - name: ssl-certs
-#     persistentVolumeClaim:
-#       claimName: ssl-cert-pvc
-#     mountPath: /ssl-certs
-
 deployment:
   initContainers:
     # The "volume-permissions" init container is required if you run into permission issues.
