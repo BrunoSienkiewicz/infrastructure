@@ -66,10 +66,7 @@ ingressRoute:
 
 # Persistent Storage
 persistence:
-  enabled: true
-  name: ssl-certs
-  size: 1Gi
-  path: /ssl-certs
+  enabled: false
 
 deployment:
   initContainers:
@@ -81,20 +78,10 @@ deployment:
       volumeMounts:
         - name: ssl-certs
           mountPath: /ssl-certs
-
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: ssl-cert-pvc
-  namespace: traefik
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: local-path
-  resources:
-    requests:
-      storage: 1Gi
+  volumes:
+    - name: ssl-certs
+      persistentVolumeClaim:
+        claimName: ssl-cert-pvc
 
 # Set Traefik as your default Ingress Controller, according to Kubernetes 1.19+ changes.
 ingressClass:
