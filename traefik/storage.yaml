@@ -1,7 +1,23 @@
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ssl-cert-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-path
+  local:
+    path: /mnt/data/ssl-cert
+
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: traefik-pvc
+  name: ssl-cert-pvc
   namespace: default
 spec:
   accessModes:
