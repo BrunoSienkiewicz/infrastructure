@@ -69,6 +69,11 @@ persistence:
   enabled: true
   existingClaim: ssl-cert-pvc
 
+volumes:
+  - name: ssl-certs
+    persistentVolumeClaim:
+      claimName: ssl-cert-pvc
+
 deployment:
   initContainers:
     # The "volume-permissions" init container is required if you run into permission issues.
