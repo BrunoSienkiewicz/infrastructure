@@ -16,7 +16,10 @@ kubectl create -n postgresql secret generic postgresql \
     --from-literal=REPLICATION_PASS=${REPLICATION_PASS}
 
 kubectl -n postgresql apply -f storage.yaml
+kubectl -n postgresql apply -f configmap.yaml
 kubectl -n postgresql apply -f statefulset.yaml
+kubectl -n postgresql apply -f statefulset-replica.yaml
+kubectl -n postgresql apply -f service.yaml
 
 unset POSTGRES_USER POSTGRES_PASSWORD POSTGRES_DB REPLICATION_USER REPLICATION_PASS
 
