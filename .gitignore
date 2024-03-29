@@ -3,6 +3,6 @@ externals/
 registry-creds/
 _diag/
 .env
-.credentials*
+*credentials*
 .path
 .runner
