@@ -73,6 +73,7 @@ volumes:
   - name: ssl-certs
     persistentVolumeClaim:
       claimName: ssl-cert-pvc
+    mountPath: /ssl-certs
 
 deployment:
   initContainers:
