@@ -17,7 +17,7 @@ spec:
       containers:
         - name: runner
           imagePullPolicy: Never #use local kind image
-          image: github-runner:latest
+          image: docker.io/brunosienkiewicz420/projects:github-runner
           env:
             - name: GITHUB_OWNER
               valueFrom:
@@ -55,6 +55,8 @@ spec:
               mountPath: /var/lib/docker
             - name: data
               mountPath: /work/
+      imagePullSecrets:
+        - name: regcred
       volumes:
         - name: docker-graph-storage
           emptyDir: {}
