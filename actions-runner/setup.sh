@@ -30,9 +30,9 @@ kubectl create secret generic "$REPO_NAME-secret" \
   --from-literal=GITHUB_OWNER="$GITHUB_OWNER" \
   --from-literal=GITHUB_REPOSITORY="$REPO_NAME" 
 
-sed -e "s/{ { SECRET_NAME } }/$REPO_NAME-secret/g" deployment.yaml > deployment_generated.yaml
-
-cat deployment_generated.yaml
+sed -e "s/{ { SECRET_NAME } }/$REPO_NAME-secret/g" \
+  -e "s/{ { RUNNER_NAME } }/$REPO_NAME-runner/g" \
+  deployment.yaml > deployment_generated.yaml
 
 # Apply the generated deployment YAML file
 kubectl apply -f deployment_generated.yaml

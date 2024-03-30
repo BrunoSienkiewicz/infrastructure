@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: github-runner
+  name: { { RUNNER_NAME } }
   labels:
-    app: github-runner
+    app: { { RUNNER_NAME } }
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: github-runner
+      app: { { RUNNER_NAME } }
   template:
     metadata:
       labels:
-        app: github-runner
+        app: { { RUNNER_NAME } }
     spec:
       containers:
-        - name: github-runner
+        - name: runner
           imagePullPolicy: Never #use local kind image
           image: github-runner:latest
           env:
