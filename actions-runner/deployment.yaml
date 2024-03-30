@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: runner
-          imagePullPolicy: Never #use local kind image
           image: docker.io/brunosienkiewicz420/projects:github-runner
+          imagePullPolicy: Always
           env:
             - name: GITHUB_OWNER
               valueFrom:

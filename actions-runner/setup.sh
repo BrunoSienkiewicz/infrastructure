@@ -24,8 +24,10 @@ if [ -z "$REPO_NAME" ]; then
     exit 1
 fi
 
+kubectl create ns github
+
 # Create the secret
-kubectl create secret generic "$REPO_NAME-secret" \
+kubectl -n github create secret generic "$REPO_NAME-secret" \
   --from-literal=GITHUB_PERSONAL_TOKEN="$GITHUB_PERSONAL_TOKEN" \
   --from-literal=GITHUB_OWNER="$GITHUB_OWNER" \
   --from-literal=GITHUB_REPOSITORY="$REPO_NAME" 
@@ -35,7 +37,7 @@ sed -e "s/{ { SECRET_NAME } }/$REPO_NAME-secret/g" \
   deployment.yaml > deployment_generated.yaml
 
 # Apply the generated deployment YAML file
-kubectl apply -f deployment_generated.yaml
+kubectl -n github apply -f deployment_generated.yaml
 
 # Clean up generated files
 rm deployment_generated.yaml
