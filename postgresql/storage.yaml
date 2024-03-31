@@ -13,8 +13,22 @@ metadata:
 spec:
   storageClassName: postgres-storage
   capacity:
-    storage: 10Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/storage/data" # Path to the local directory on the node
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-pv-replica
+spec:
+  storageClassName: postgres-storage
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/storage/data-replica" # Path to the local directory on the node

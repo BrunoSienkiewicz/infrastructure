@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: postgres-replica
   serviceName: "postgres-replica"
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -84,4 +84,4 @@ spec:
         storageClassName: postgres-storage
         resources:
           requests:
-            storage: 100Mi
+            storage: 5Gi
