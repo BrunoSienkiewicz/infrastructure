@@ -17,4 +17,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/data" # Path to the local directory on the node
+    path: "/mnt/storage/data" # Path to the local directory on the node
