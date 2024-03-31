@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: postgres-replica
   serviceName: "postgres-replica"
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
