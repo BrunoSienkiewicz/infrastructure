@@ -19,7 +19,7 @@ spec:
           image: postgres:15.0
           command:
             - sh
-              -c
+            - -c
             - |
               if [ -z "$(ls -A /var/lib/postgresql/data/pgdata)" ]; then
                 echo "Running pg_basebackup to catch up replication server...";
