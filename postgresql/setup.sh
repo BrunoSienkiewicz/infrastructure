@@ -4,7 +4,7 @@ kubectl create ns postgresql
 
 kubectl create -n postgresql secret generic postgresql \
     --from-literal=POSTGRES_USER=${SECRET_POSTGRES_USER} \
-    --from-literal=POSTGRES_PASSWORD=${SECRET_POSTGRES_PASSWORD} \
+    --from-literal=POSTGRES_PASSWORD=${SECRET_POSTGRES_PASS} \
     --from-literal=POSTGRES_DB=${SECRET_POSTGRES_DB} \
     --from-literal=REPLICATION_USER=${SECRET_REPLICATION_USER} \
     --from-literal=REPLICATION_PASS=${SECRET_REPLICATION_PASS}
