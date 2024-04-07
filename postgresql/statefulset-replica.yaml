@@ -50,13 +50,13 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: postgresql
-                  key: POSTGRES_USER
+                  key: REPLICATION_USER
                   optional: false
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: postgresql
-                  key: POSTGRES_PASSWORD
+                  key: REPLICATION_PASSWORD
                   optional: false
             - name: POSTGRES_DB
               valueFrom:
@@ -81,7 +81,7 @@ spec:
         name: data
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: postgres-storage
+        storageClassName: local-provisioner-storageclass
         resources:
           requests:
             storage: 5Gi
