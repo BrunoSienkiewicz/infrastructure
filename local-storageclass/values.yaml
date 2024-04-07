@@ -1,5 +1,5 @@
 classes:
-  - name: local-provisoner-storageclass # Defines name of storage classes.
+  - name: local-provisioner-storageclass # Defines name of storage classes.
     # Path on the host where local volumes of this storage class are mounted
     # under.
     hostDir: /mnt/storage/local-storageclass
