@@ -2,7 +2,7 @@ classes:
   - name: local-provisoner-storageclass # Defines name of storage classes.
     # Path on the host where local volumes of this storage class are mounted
     # under.
-    hostDir: /mnt/storage
+    hostDir: /mnt/storage/local-storageclass
     # Optionally specify mount path of local volumes. By default, we use same
     # path as hostDir in container.
     # mountDir: /mnt/fast-disks

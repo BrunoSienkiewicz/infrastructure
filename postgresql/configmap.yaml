@@ -75,7 +75,5 @@ data:
     hot_standby = on
     restore_command = 'cp /data/archive/%f %p'
     archive_cleanup_command = 'pg_archivecleanup /data/archive %r'
-    trigger_file = '/data/pgdata-replica/failover'
-    recovery_target_timeline = 'latest'
 
 

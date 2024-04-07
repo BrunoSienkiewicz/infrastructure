@@ -14,7 +14,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-path
   local:
-    path: /mnt/ssl-cert
+    path: /mnt/storage/ssl-cert
   nodeAffinity:
     required:
       nodeSelectorTerms:
